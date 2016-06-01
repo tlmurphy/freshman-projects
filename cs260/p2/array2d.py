@@ -15,14 +15,14 @@ class Array2D:
         grid = []
         width = 0
         height = 0
-        
+
         grid = [s.split(",") for s in f.read().splitlines()]
 
         for rows in grid:
             height += 1
             for columns in rows:
                 width += 1
-             
+
         self._width = width // height
         self._height = height
         self.grid = grid
@@ -38,11 +38,11 @@ class Array2D:
     def get_elem(self, row, col):
         #Returns an element at given coordinates
         return self.grid[row][col]
-        
+
     def set_elem(self, row, col, element):
         #Assigns new element to given coordinates
         self.grid[row][col] = element
-        
+
     def row(self, row_no):
         #Return list containing the elements in row
         return self.grid[row_no]
@@ -65,7 +65,7 @@ class Array2D:
         return self._width * self._height
 
     def __eq__(self, other):
-        #Tests for equality 
+        #Tests for equality
         if self is other: return True
         if type(self) != type(other): return False
         if len(self) != len(other): return False
@@ -78,7 +78,7 @@ class Array2D:
 
     def __str__(self):
         #Allows the printing of the 2D array
-        for r in range(self._height): 
+        for r in range(self._height):
             for c in range(self._width):
                 print(self.grid[r][c], end="\t")
             print()
@@ -87,7 +87,7 @@ class Array2D:
     def sorts(self, col_no, direction, types):
         #lyst = self.column(col_no)
         #lyst.remove(lyst[0]) #Remove header
-        
+
         if direction == "descend":
             if types == "s":
                 self.grid = sorted(self.grid, key = lambda x: str(x[col_no]))
